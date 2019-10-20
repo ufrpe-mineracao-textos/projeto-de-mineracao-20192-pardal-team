@@ -9,7 +9,7 @@
 ## Entregas
 
 1. [Artigos e produtos relacionados e datasets](./deliveries/01.md)
-2. Serviços de pré-processamento e extração de características
+2. Pré-processamento e classificação
 3. Primeira versão dos algoritmos
 4. Interface do sistema
 5. Resultado final e interface final
