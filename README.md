@@ -1,17 +1,16 @@
-# E.A.T[Emotional  Tweets Analyze]
+<h1 align="center">Pardal Team</h1>
+<p align="center">Análise de Sentimentos em Tweets</p>
 
-Uma ferramente que procura analiser os sentimentos expressos sobre determinado candidato na plataforma Twitter.
+## Equipe
 
-## Getting Started
+- [Abílio Nogueira](https://github.com/AbilioNB)
+- [Edilson Alves](https://github.com/edilsonalves)
 
-O projeto está em desenvolvimento e  tem previsão de lançamento em sua fase beta para Dezembro/2019.
+## Entregas
 
-### Datasets
-
-Data set twittes políticos [PT-BR] : [Twetts Bolsonaro Campanha 2018](http://https://www.kaggle.com/unanimad/tweets-from-brasil-presidential-candidates-2018 "Twetts Bolsonaro Campanha 2018")
-
-
-
-
-
-
+1. [Artigos e produtos relacionados e datasets](./deliveries/01.md)
+2. Serviços de pré-processamento e extração de características
+3. Primeira versão dos algoritmos
+4. Interface do sistema
+5. Resultado final e interface final
+6. Relatório final
