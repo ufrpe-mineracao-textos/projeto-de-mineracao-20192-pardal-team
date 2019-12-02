@@ -2,6 +2,7 @@ import os
 import re
 from dotenv import load_dotenv
 from mtranslate import translate
+from textblob import TextBlob
 from flask import Flask
 
 load_dotenv()
@@ -35,6 +36,18 @@ class TwitterClient():
         c_tweet = c_tweet.strip()
 
         return c_tweet
+
+    def get_sentiment(self, tweet):
+        c_tweet = self.clean_tweet(tweet)
+        t_tweet = self.translate_tweet(c_tweet)
+        analysis = TextBlob(t_tweet)
+
+        if analysis.sentiment.polarity > 0:
+            return 'positive'
+        elif analysis.sentiment.polarity == 0:
+            return 'neutral'
+        else:
+            return 'negative'
 
 
 @app.route('/')
