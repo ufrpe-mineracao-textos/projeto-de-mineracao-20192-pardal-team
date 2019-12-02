@@ -5,7 +5,7 @@ import preprocessor
 from dotenv import load_dotenv
 from mtranslate import translate
 from textblob import TextBlob
-from flask import Flask, render_template, send_from_directory
+from flask import Flask, render_template, request, send_from_directory
 
 load_dotenv()
 app = Flask(__name__)
@@ -94,6 +94,17 @@ def get_amount(tweets):
 @app.route('/')
 def index():
     return render_template('index.html')
+
+
+@app.route('/analyze', methods=['GET', 'POST'])
+def analyze():
+    if request.method == 'POST':
+        word = request.form['word']
+        api = TwitterClient()
+        tweets = api.get_tweets(word=word, count=10)
+        positive, neutral, negative = get_amount(tweets)
+
+        return render_template('analyze.html', tweets=tweets, positive=positive, neutral=neutral, negative=negative)
 
 
 @app.route('/favicon.ico')
