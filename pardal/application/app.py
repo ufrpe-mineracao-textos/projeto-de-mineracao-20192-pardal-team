@@ -1,5 +1,7 @@
 import os
 import re
+import tweepy
+import preprocessor
 from dotenv import load_dotenv
 from mtranslate import translate
 from textblob import TextBlob
@@ -48,6 +50,27 @@ class TwitterClient():
             return 'neutral'
         else:
             return 'negative'
+
+    def get_tweets(self, word, count):
+        tweets = []
+
+        try:
+            fetched_tweets = self.api.search(q=word, count=count)
+
+            for tweet in fetched_tweets:
+                parsed_tweet = {}
+                parsed_tweet['text'] = tweet.text
+                parsed_tweet['sentiment'] = self.get_sentiment(tweet.text)
+
+                if tweet.retweet_count > 0:
+                    if parsed_tweet not in tweets:
+                        tweets.append(parsed_tweet)
+                else:
+                    tweets.append(parsed_tweet)
+
+            return tweets
+        except tweepy.TweepError as error:
+            print('Error: {}'.format(error))
 
 
 @app.route('/')
