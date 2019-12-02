@@ -1,5 +1,6 @@
 import os
 from dotenv import load_dotenv
+from mtranslate import translate
 from flask import Flask
 
 load_dotenv()
@@ -19,6 +20,11 @@ class TwitterClient():
             self.api = tweepy.API(self.auth)
         except:
             print('Error: Authentication Failed')
+
+    def translate_tweet(self, tweet):
+        t_tweet = translate(tweet, 'en', 'auto')
+
+        return t_tweet
 
 
 @app.route('/')
