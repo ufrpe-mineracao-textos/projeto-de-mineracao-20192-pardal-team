@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"
+      integrity="sha256-Uv9BNBucvCPipKQ2NS9wYpJmi8DTOEfTA/nH2aoJALw="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      defer
+      src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"
+    ></script>
+    <title>Pardal Team</title>
+  </head>
+  <body>
+    <section class="hero is-warning is-fullheight">
+      <div class="hero-body">
+        <div class="container has-text-centered">
+          <div class="columns">
+            <div class="column">
+              <h1 class="title">
+                Pardal Team
+              </h1>
+              <h2 class="subtitle">
+                Análise de Sentimentos em Tweets
+              </h2>
+            </div>
+            <div class="column">
+              <form action="/analyze" method="POST">
+                <div class="field has-addons">
+                  <div class="control">
+                    <input
+                      class="input"
+                      type="text"
+                      id="word"
+                      name="word"
+                      placeholder="Palavra chave"
+                    />
+                  </div>
+                </div>
+                <div class="field has-addons">
+                  <div class="control">
+                    <input class="button" type="submit" value="Pesquisar" />
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

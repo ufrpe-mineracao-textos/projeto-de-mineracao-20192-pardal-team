@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"
+      integrity="sha256-Uv9BNBucvCPipKQ2NS9wYpJmi8DTOEfTA/nH2aoJALw="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      defer
+      src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"
+    ></script>
+    <title>Pardal Team</title>
+  </head>
+  <body>
+    <section class="hero is-warning">
+      <div class="hero-body">
+        <div class="container has-text-centered">
+          <div class="columns">
+            <div class="column">
+              <h1 class="title">
+                Pardal Team
+              </h1>
+              <h2 class="subtitle">
+                Análise de Sentimentos em Tweets
+              </h2>
+            </div>
+            <div class="column">
+              <form action="/analyze" method="POST">
+                <div class="field has-addons">
+                  <div class="control">
+                    <input
+                      class="input"
+                      type="text"
+                      id="word"
+                      name="word"
+                      placeholder="Palavra chave"
+                    />
+                  </div>
+                </div>
+                <div class="field has-addons">
+                  <div class="control">
+                    <input class="button" type="submit" value="Pesquisar" />
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        <div class="columns is-centered">
+          <div class="column">
+            <h2 class="subtitle"><i class="fab fa-twitter"></i> Tweets</h2>
+            <ul>
+              {% for tweet in tweets %}
+              <div class="box">
+                <li>
+                  <p>{{ tweet.text }}</p>
+                  <br />
+                  {% if tweet.sentiment == 'positive' %}
+                  <span class="tag is-primary is-light"
+                    >Sentimento: Positivo</span
+                  >
+                  {% endif %} {% if tweet.sentiment == 'neutral' %}
+                  <span class="tag is-warning is-light"
+                    >Sentimento: Neutro</span
+                  >
+                  {% endif %} {% if tweet.sentiment == 'negative' %}
+                  <span class="tag is-danger is-light"
+                    >Sentimento: Negativo</span
+                  >
+                  {% endif %}
+                </li>
+              </div>
+              {% endfor %}
+            </ul>
+          </div>
+          <div class="column">
+            <h2 class="subtitle"><i class="fas fa-chart-pie"></i> Gráfico</h2>
+            <div style="padding-left: 80px">
+              <canvas id="myChart" width="400" height="400"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script>
+      Chart.defaults.global.responsive = false;
+      let ctx = document.getElementById('myChart').getContext('2d');
+      let myChart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+          labels: ['Positivo', 'Neutro', 'Negativo'],
+          datasets: [
+            {
+              label: 'Tweets',
+              data: [
+                {{ positive }}, {{ neutral }}, {{ negative }}
+              ],
+              backgroundColor: [
+                'rgba(000, 209, 177, 0.1)',
+                'rgba(255, 221, 086, 0.1)',
+                'rgba(255, 056, 095, 0.1)'
+              ],
+              borderColor: [
+                'rgba(000, 209, 177, 0.5)',
+                'rgba(255, 221, 086, 0.5)',
+                'rgba(255, 056, 095, 0.5)'
+              ],
+              borderWidth: 1
+            }
+          ]
+        }
+      });
+    </script>
+  </body>
+</html>
