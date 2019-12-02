@@ -1,4 +1,5 @@
 import os
+import re
 from dotenv import load_dotenv
 from mtranslate import translate
 from flask import Flask
@@ -25,6 +26,15 @@ class TwitterClient():
         t_tweet = translate(tweet, 'en', 'auto')
 
         return t_tweet
+
+    def clean_tweet(self, tweet):
+        c_tweet = preprocessor.clean(tweet)
+        c_tweet = re.sub(r'(\:)', '', c_tweet)
+        c_tweet = re.sub(r'(\")', '', c_tweet)
+        c_tweet = re.sub(r'(\')', '', c_tweet)
+        c_tweet = c_tweet.strip()
+
+        return c_tweet
 
 
 @app.route('/')
