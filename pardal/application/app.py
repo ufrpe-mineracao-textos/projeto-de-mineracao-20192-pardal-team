@@ -73,6 +73,24 @@ class TwitterClient():
             print('Error: {}'.format(error))
 
 
+def get_amount(tweets):
+    positive, neutral, negative = 0, 0, 0
+
+    for tweet in tweets:
+        if tweet['sentiment'] == 'positive':
+            positive += 1
+        elif tweet['sentiment'] == 'neutral':
+            neutral += 1
+        else:
+            negative += 1
+
+    positive = 100 * positive / len(tweets)
+    neutral = 100 * neutral / len(tweets)
+    negative = 100 * negative / len(tweets)
+
+    return positive, neutral, negative
+
+
 @app.route('/')
 def index():
     return 'Hello, World!'
