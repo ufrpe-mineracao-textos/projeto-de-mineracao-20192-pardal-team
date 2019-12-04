@@ -10,7 +10,9 @@
 
 1. [Artigos e produtos relacionados e datasets](./deliveries/01.md)
 2. [Pré-processamento e classificação](./deliveries/02.md)
-3. Primeira versão dos algoritmos
-4. Interface do sistema
-5. Resultado final e interface final
-6. Relatório final
+3. Primeira versão dos algoritmos(./deliveries/entregas_finais.md)
+4. Interface do sistema(./deliveries/entregas_finais.md)
+5. Resultado final e interface final(./deliveries/entregas_finais.md)
+
+[Plataforma Web](https://twinaliser.herokuapp.com/)
+
