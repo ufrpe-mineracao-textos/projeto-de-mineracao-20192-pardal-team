@@ -5,6 +5,8 @@
 
 Pardal é uma simples aplicação para análise, em tempo real, de sentimentos em Tweets buscados por palavra-chave. Os resultados obtidos são exibidos em um dashboard de fácil entendimento onde cada Tweets é categorizado como positivo, neutro ou negativo.
 
+[Aplicação no Heroku](https://pardalteam.herokuapp.com)
+
 ## Equipe
 
 - [Abílio Nogueira](https://github.com/AbilioNB)
