@@ -1,6 +1,10 @@
 <h1 align="center">Pardal Team</h1>
 <p align="center">Análise de Sentimentos em Tweets</p>
 
+## Descrição
+
+Pardal é uma simples aplicação para análise, em tempo real, de sentimentos em Tweets buscados por palavra-chave. Os resultados obtidos são exibidos em um dashboard de fácil entendimento onde cada Tweets é categorizado como positivo, neutro ou negativo.
+
 ## Equipe
 
 - [Abílio Nogueira](https://github.com/AbilioNB)
