@@ -15,7 +15,7 @@ idna==2.8
 multidict==4.5.2
 numpy==1.17.2
 pandas==0.25.1
-pycares==3.0.0
+pycares==4.2.0
 pycparser==2.19
 PySocks==1.7.1
 python-dateutil==2.8.0
